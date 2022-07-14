@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  minio:
+    image: docker.io/bitnami/minio:2021
+    environment:
+      - MINIO_ACCESS_KEY=tq8eFzWqktDp6DwE
+      - MINIO_SECRET_KEY=durCtAv6p2ryFkYU
+    ports:
+      - '9000:9000'
+    volumes:
+      - './data:/data'
+
+volumes:
+  minio_data:
+    driver: local
+
+networks:
+  default:
+    external:
+      name: external-uat
